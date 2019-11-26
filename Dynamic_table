@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td,th {
+  border: 1px solid black;
+  width: 40%;
+}
+</style>
+</head>
+<body>
+
+
+NAME:<input type="text" id="name" name="name">
+VALUE:<input type="text" id="value" name="name">
+<button type="button" onclick="myFunction(document.getElementById('name').value,document.getElementById('value').value)">ADD ROW</button>
+
+<br>
+
+<table id="myTable">
+    <tr>
+        <th>NAME</th>
+        <th>VALUE</th>
+    </tr>
+</table>
+
+<button type="button" onclick="sum()">SUM</button>
+<script>
+function myFunction(a,b) {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  cell1.innerHTML = a;
+  cell2.innerHTML = b;
+}
+
+
+             function sum(){
+             var table = document.getElementById("myTable"),sumVal = 0;
+            
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                sumVal = sumVal + parseInt(table.rows[i].cells[1].innerHTML);
+            }
+            
+            document.getElementById("val").innerHTML = "Sum Value = " + sumVal;
+            console.log(sumVal);
+        }
+</script>
+<span id="val"></span>
+</body>
+</html>
